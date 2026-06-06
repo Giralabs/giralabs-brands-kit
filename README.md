@@ -37,15 +37,15 @@ Located in: `Combination Marks/`
 | Filename | Layout | Color | Background |
 | :--- | :--- | :--- | :--- |
 | [combinationmark_apricot_horizontal.png](Combination%20Marks/combinationmark_apricot_horizontal.png) | Horizontal | Apricot | Solid |
-| [combinationmark_apricot_horizontal_sinfondo.png](Combination%20Marks/combinationmark_apricot_horizontal_sinfondo.png) | Horizontal | Apricot | Transparent |
+| [combinationmark_apricot_horizontal_nobackground.png](Combination%20Marks/combinationmark_apricot_horizontal_nobackground.png) | Horizontal | Apricot | Transparent |
 | [combinationmark_apricot_vertical.png](Combination%20Marks/combinationmark_apricot_vertical.png) | Vertical | Apricot | Solid |
-| [combinationmark_apricot_vertical_sinfondo.png](Combination%20Marks/combinationmark_apricot_vertical_sinfondo.png) | Vertical | Apricot | Transparent |
+| [combinationmark_apricot_vertical_nobackground.png](Combination%20Marks/combinationmark_apricot_vertical_nobackground.png) | Vertical | Apricot | Transparent |
 | [combinationmark_black_horizontal.png](Combination%20Marks/combinationmark_black_horizontal.png) | Horizontal | Black | Solid |
 | [combinationmark_black_horizontal_nobackground.png](Combination%20Marks/combinationmark_black_horizontal_nobackground.png) | Horizontal | Black | Transparent |
 | [combinationmark_black_vertical.png](Combination%20Marks/combinationmark_black_vertical.png) | Vertical | Black | Solid |
 | [combinationmark_black_vertical_nobackground.png](Combination%20Marks/combinationmark_black_vertical_nobackground.png) | Vertical | Black | Transparent |
 
-*Note: Files ending with `_sinfondo` or `_nobackground` have transparent backgrounds.*
+*Note: Files ending with `_nobackground` have transparent backgrounds.*
 
 ---
 
@@ -77,7 +77,7 @@ Located in: `Social Media - Less Zoom/`
 
 ## Usage Guidelines
 
-- **Solid vs. Transparent (`_nobackground` / `_sinfondo`):** Use transparent assets for overlaying on custom color backgrounds, hero headers, or colored blocks. Use solid background files for standard grid displays.
+- **Solid vs. Transparent (`_nobackground`):** Use transparent assets for overlaying on custom color backgrounds, hero headers, or colored blocks. Use solid background files for standard grid displays.
 - **Horizontal vs. Vertical Layouts:**
   - Use **Horizontal** combination marks for navigation bars, headers, and banners where vertical space is limited.
   - Use **Vertical** combination marks for center-aligned placements, print media, or standalone signage.
