@@ -1,131 +1,125 @@
-# Giralabs Brand Kit
+# 🎨 Brand Kits & Resource Repository
 
-Welcome to the **Giralabs Brand Kit**. This repository serves as the central hub for Giralabs' official brand assets, including logo marks, wordmarks, and combination marks in high resolution.
+Welcome to the multi-brand asset repository. This workspace serves as the central hub for our official brand assets, including logo marks, wordmarks, combination marks, and screenshots across multiple projects. 
 
----
+Currently, this repository hosts the brand kits for:
+1. **Giralabs** - The core brand kit with clean, modern assets.
+2. **Mealty** - Provisional brand resources, application screenshots, and marketing assets.
 
-## 🎨 Color Palette Specifications
-
-To ensure consistent brand representation across all media, use the following hex and RGB values extracted from our official brand assets:
-
-| Color | HEX | RGB | Sample | Usage |
-| :--- | :--- | :--- | :--- | :--- |
-| **Apricot** | `#F0EFEA` | `rgb(240, 239, 234)` | `██████` (Apricot) | Light theme background / brand color |
-| **Black** | `#000000` | `rgb(0, 0, 0)` | `██████` (Black) | Dark theme background / brand color |
-| **Logo Pill Color** | `#DEDFD9` | `rgb(222, 223, 217)` | `██████` (Logo Pill) | The signature color of the logo pill / symbol |
-
----
-
-## 🔤 Typography
-
-Our official brand typeface is **Gilroy**.
-
-* **Main Font Family:** Gilroy
-* **Headings & Accents:** Gilroy Bold
-* **Body & Descriptions:** Gilroy Regular / Medium
+All assets are structured by project, type, and format to ensure seamless integration across web, mobile, print, and social media platforms.
 
 ---
 
 ## 📁 Repository Structure
 
-The assets are divided into four primary folders based on layout and application:
+Both brands follow a consistent file structure categorized by export formats:
 
 ```
 giralabs-brand-kit/
-├── 📁 Brand Marks/                 # Standalone brand symbols (icon only)
-├── 📁 Combination Marks/           # Combined symbol + wordmark logos
-├── 📁 Social Media - Less Zoom/    # Avatar-optimized symbols with wider margins
-└── 📁 Wordmarks/                   # Standalone typography (wordmark only)
+├── 📁 Giralabs/
+│   ├── 📁 PNG/                      # Original high-res PNG files (with transparency)
+│   ├── 📁 WEBP/                     # Modern web-optimized WebP files
+│   ├── 📁 JPG/                      # Compatibility-focused JPG files (with white background fallback)
+│   └── 📁 AVIF/                     # Next-gen high compression AVIF files
+│
+└── 📁 Mealty - Provisional/
+    ├── 📁 WEBP/                     # Original WebP and screenshots
+    ├── 📁 PNG/                      # High-res PNG exports
+    ├── 📁 JPG/                      # JPG exports (ideal for compatibility / email clients)
+    └── 📁 AVIF/                     # Next-gen high compression AVIF exports
 ```
 
 ---
 
-## 📐 Detailed Asset Catalog
+## 🎨 Giralabs Brand Specifications
 
-### 1. Brand Marks (`Brand Marks/`)
-These are standalone symbols (icon-only logos). Best suited for favicons, app icons, or contexts where the brand name "Giralabs" is already prominently displayed.
+### Color Palette
 
-* **Format:** PNG
-* **Resolution:** 2000 x 2000 px
+To ensure consistent brand representation across all media, use the following specifications extracted from our official assets:
 
-| Asset / Link | Description | Logo Pill Color | Background / Theme |
-| :--- | :--- | :--- | :--- |
-| [apricot_symbol.png](Brand%20Marks/apricot_symbol.png) | Giralabs Symbol | Logo Pill Color (`#DEDFD9`) | Apricot (`#F0EFEA`) |
-| [apricot_symbol_nobackground.png](Brand%20Marks/apricot_symbol_nobackground.png) | Giralabs Symbol | Logo Pill Color (`#DEDFD9`) | Transparent |
-| [black_symbol.png](Brand%20Marks/black_symbol.png) | Giralabs Symbol | Logo Pill Color (`#DEDFD9`) | Black (`#000000`) |
-| [black_symbol_nobackground.png](Brand%20Marks/black_symbol_nobackground.png) | Giralabs Symbol | Logo Pill Color (`#DEDFD9`) | Transparent |
-
----
-
-### 2. Combination Marks (`Combination Marks/`)
-These combine the symbol and the wordmark. Use the **Horizontal** layout for banners, headers, and navbars. Use the **Vertical** layout for center-aligned cards, poster designs, and print.
-
-* **Format:** PNG
-
-| Asset / Link | Layout | Resolution | Theme | Background |
+| Color | HEX | RGB | Sample | Usage |
 | :--- | :--- | :--- | :--- | :--- |
-| [combinationmark_apricot_horizontal.png](Combination%20Marks/combinationmark_apricot_horizontal.png) | Horizontal | 2000 x 1673 px | Apricot | Apricot (`#F0EFEA`) |
-| [combinationmark_apricot_horizontal_nobackground.png](Combination%20Marks/combinationmark_apricot_horizontal_nobackground.png) | Horizontal | 2000 x 1104 px | Apricot | Transparent |
-| [combinationmark_apricot_vertical.png](Combination%20Marks/combinationmark_apricot_vertical.png) | Vertical | 2000 x 2000 px | Apricot | Apricot (`#F0EFEA`) |
-| [combinationmark_apricot_vertical_nobackground.png](Combination%20Marks/combinationmark_apricot_vertical_nobackground.png) | Vertical | 2000 x 2000 px | Apricot | Transparent |
-| [combinationmark_black_horizontal.png](Combination%20Marks/combinationmark_black_horizontal.png) | Horizontal | 2000 x 2000 px | Black | Black (`#000000`) |
-| [combinationmark_black_horizontal_nobackground.png](Combination%20Marks/combinationmark_black_horizontal_nobackground.png) | Horizontal | 2000 x 813 px | Black | Transparent |
-| [combinationmark_black_vertical.png](Combination%20Marks/combinationmark_black_vertical.png) | Vertical | 2000 x 2000 px | Black | Black (`#000000`) |
-| [combinationmark_black_vertical_nobackground.png](Combination%20Marks/combinationmark_black_vertical_nobackground.png) | Vertical | 2000 x 2000 px | Black | Transparent |
+| **Apricot** | `#F0EFEA` | `rgb(240, 239, 234)` | `██████` | Light theme background / brand color |
+| **Black** | `#000000` | `rgb(0, 0, 0)` | `██████` | Dark theme background / brand color |
+| **Logo Pill Color** | `#DEDFD9` | `rgb(222, 223, 217)` | `██████` | Signature color of the logo pill/symbol |
+
+### Typography
+
+Our official brand typeface is **Gilroy**.
+* **Main Font Family:** Gilroy
+* **Headings & Accents:** Gilroy Bold
+* **Body & Descriptions:** Gilroy Regular / Medium
+
+### Giralabs Asset Catalog (by Format Directories)
+Each format directory (`Giralabs/PNG/`, `Giralabs/WEBP/`, `Giralabs/JPG/`, `Giralabs/AVIF/`) contains:
+* **`Brand Marks/`**: Standalone brand symbols (icon only) — e.g., `apricot_symbol`, `black_symbol` (with and without backgrounds).
+* **`Combination Marks/`**: Combined symbol + wordmark logos in `horizontal` and `vertical` layouts.
+* **`Social Media - Less Zoom/`**: Framed symbols optimized for avatars (extra padding to prevent clipping in circular crops).
+* **`Wordmarks/`**: Standalone Giralabs typographic wordmarks.
 
 ---
 
-### 3. Wordmarks (`Wordmarks/`)
-The stylized Giralabs typographic wordmark, set in Gilroy Bold. Ideal for clean, text-driven designs where the symbol isn't necessary.
+## 🥗 Mealty Brand Specifications
 
-* **Format:** PNG
-* **Resolution:** 2000 x 2000 px
+### Color Palette
 
-| Asset / Link | Typography Color | Background |
-| :--- | :--- | :--- |
-| [apricot_wordmark.png](Wordmarks/apricot_wordmark.png) | Logo Pill Color (`#DEDFD9`) | Apricot (`#F0EFEA`) |
-| [apricot_wordmark_nobackground.png](Wordmarks/apricot_wordmark_nobackground.png) | Logo Pill Color (`#DEDFD9`) | Transparent |
-| [black_wordmark.png](Wordmarks/black_wordmark.png) | Logo Pill Color (`#DEDFD9`) | Black (`#000000`) |
-| [black_wordmark_nobackground.png](Wordmarks/black_wordmark_nobackground.png) | Logo Pill Color (`#DEDFD9`) | Transparent |
+Extracted from Mealty's brand marks:
+
+| Color | HEX | RGB | Sample | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Mealty Green** | `#4B9782` | `rgb(75, 151, 130)` | `██████` | Primary brand green color |
+| **Warm Cream** | `#FFFAE5` | `rgb(255, 250, 229)` | `██████` | Secondary light background color |
+| **Sandy Accent** | `#D9CA9B` | `rgb(217, 202, 155)` | `██████` | Accent highlight color |
+
+### Mealty Asset Catalog (by Format Directories)
+Each format directory (`Mealty - Provisional/WEBP/`, `Mealty - Provisional/PNG/`, `Mealty - Provisional/JPG/`, `Mealty - Provisional/AVIF/`) contains:
+* **`Brand Marks/`**: Icon-only logos including `green_symbol` and `white_symbol` variants.
+* **`Combination Marks/`**: Combined logos featuring `green` and `white` horizontal and vertical combinations.
+* **`Wordmarks/`**: Wordmarks with background and transparent variants.
+* **`Screenshots/`**: Interactive mockups and application screens (e.g., `allergies_screen`, `budget_screen`, `diets_screen`, `kitchen_screen`, `supermarkets_screen`, `lasts_steps_modal`).
 
 ---
 
-### 4. Social Media Profiles (`Social Media - Less Zoom/`)
-Specifically framed symbols designed for profile images (Discord, Twitter, GitHub, Steam). These files include extra padding (less zoom) around the symbol to prevent its edges from being clipped by circular or square cropping masks.
+## ⚡ Formats Cheat Sheet
 
-* **Format:** PNG
-* **Resolution:** 2000 x 2000 px
+Choose the right format for your use case:
 
-| Asset / Link | Theme | Background |
-| :--- | :--- | :--- |
-| [apricot_symbol.png](Social%20Media%20-%20Less%20Zoom/apricot_symbol.png) | Apricot | Apricot (`#F0EFEA`) |
-| [black_symbol.png](Social%20Media%20-%20Less%20Zoom/black_symbol.png) | Black | Black (`#000000`) |
+| Format | Extension | Strengths | Ideal Use Case |
+| :--- | :--- | :--- | :--- |
+| **AVIF** | `.avif` | Best-in-class compression, preserves transparency. | Web and mobile frontend performance. |
+| **WebP** | `.webp` | Modern standard, high compression, widely supported, supports transparency. | General web layouts and background graphics. |
+| **PNG** | `.png` | Lossless quality, universal transparency support. | Print, design templates, and offline documents. |
+| **JPG** | `.jpg` | Universal compatibility, no transparency. | Email templates, legacy browser fallbacks. |
 
 ---
 
 ## 🛠 Integration Snippets
 
-### HTML
-To include the transparent horizontal logo on your website or dashboard:
+### HTML (Modern Web Native Responsive Image)
+Leverage HTML `<picture>` to automatically serve next-gen formats like **AVIF** and **WebP** with fallback to **PNG**:
+
 ```html
-<a href="https://giralabs.com">
-  <img src="path/to/combinationmark_apricot_horizontal_nobackground.png" alt="Giralabs Logo" width="200" height="110">
-</a>
+<picture>
+  <source srcset="Giralabs/AVIF/Combination Marks/combinationmark_apricot_horizontal_nobackground.avif" type="image/avif">
+  <source srcset="Giralabs/WEBP/Combination Marks/combinationmark_apricot_horizontal_nobackground.webp" type="image/webp">
+  <img src="Giralabs/PNG/Combination Marks/combinationmark_apricot_horizontal_nobackground.png" alt="Giralabs Logo" width="300">
+</picture>
 ```
 
 ### Markdown (READMEs)
-To center-align a logo in a GitHub README:
+To add a center-aligned logo in a GitHub README:
+
 ```markdown
 <p align="center">
-  <img src="Combination Marks/combinationmark_apricot_horizontal_nobackground.png" alt="Giralabs Logo" width="300" />
+  <img src="Giralabs/PNG/Combination%20Marks/combinationmark_apricot_horizontal_nobackground.png" alt="Giralabs Logo" width="300" />
 </p>
 ```
 
 ---
 
-## 💡 Best Practices & Guidelines
+## 💡 Usage Guidelines & Best Practices
 
-* **Do** use the `nobackground` versions on colored cards or headers to let the surface background bleed through.
-* **Do** use the **Social Media - Less Zoom** folder for profile pictures to ensure the logo is perfectly centered and visible.
-* **Don't** stretch or compress the aspect ratio of the logos. Always scale them proportionally.
-* **Don't** place the Apricot logos on pure white backgrounds; use the transparent or black variants to ensure sufficient contrast.
+* **Transparency Check:** Use the `nobackground` files when placing logos on dark, light, or pattern backgrounds to avoid awkward boxes.
+* **Social Media Layouts:** Always use the `Social Media - Less Zoom` files for profile photos on Discord, Twitter, and GitHub to ensure the margins aren't cut off by circular masking.
+* **No Distortion:** When scaling images, always lock the aspect ratio (`width` and `height` proportional) to prevent stretching.
+* **JPG Backgrounds:** Please note that since the JPG format does not support transparency, transparent files converted to JPG have a clean white background applied automatically.
