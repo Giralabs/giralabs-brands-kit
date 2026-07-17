@@ -5,6 +5,7 @@ Welcome to the multi-brand asset repository. This workspace serves as the centra
 Currently, this repository hosts the brand kits for:
 1. **Giralabs** - The core brand kit with clean, modern assets.
 2. **Mealty** - Provisional brand resources, application screenshots, and marketing assets.
+3. **Bipsy** - The Bipsy brand kit with carbon and mint green elements.
 
 All assets are structured by project, type, and format to ensure seamless integration across web, mobile, print, and social media platforms.
 
@@ -12,7 +13,7 @@ All assets are structured by project, type, and format to ensure seamless integr
 
 ## 📁 Repository Structure
 
-Both brands follow a consistent file structure categorized by export formats:
+All brands follow a consistent file structure categorized by export formats:
 
 ```
 giralabs-brand-kit/
@@ -22,11 +23,17 @@ giralabs-brand-kit/
 │   ├── 📁 JPG/                      # Compatibility-focused JPG files (with white background fallback)
 │   └── 📁 AVIF/                     # Next-gen high compression AVIF files
 │
-└── 📁 Mealty - Provisional/
-    ├── 📁 WEBP/                     # Original WebP and screenshots
-    ├── 📁 PNG/                      # High-res PNG exports
-    ├── 📁 JPG/                      # JPG exports (ideal for compatibility / email clients)
-    └── 📁 AVIF/                     # Next-gen high compression AVIF exports
+├── 📁 Mealty - Provisional/
+│   ├── 📁 WEBP/                     # Original WebP and screenshots
+│   ├── 📁 PNG/                      # High-res PNG exports
+│   ├── 📁 JPG/                      # JPG exports (ideal for compatibility / email clients)
+│   └── 📁 AVIF/                     # Next-gen high compression AVIF exports
+│
+└── 📁 Bipsy/
+    ├── 📁 PNG/                      # Original high-res PNG files (with transparency)
+    ├── 📁 WEBP/                     # Modern web-optimized WebP files
+    ├── 📁 JPG/                      # Compatibility-focused JPG files (with white background fallback)
+    └── 📁 AVIF/                     # Next-gen high compression AVIF files
 ```
 
 ---
@@ -77,6 +84,25 @@ Each format directory (`Mealty - Provisional/WEBP/`, `Mealty - Provisional/PNG/`
 * **`Combination Marks/`**: Combined logos featuring `green` and `white` horizontal and vertical combinations.
 * **`Wordmarks/`**: Wordmarks with background and transparent variants.
 * **`Screenshots/`**: Interactive mockups and application screens (e.g., `allergies_screen`, `budget_screen`, `diets_screen`, `kitchen_screen`, `supermarkets_screen`, `lasts_steps_modal`).
+---
+
+## 🦄 Bipsy Brand Specifications
+
+### Color Palette
+
+Extracted from Bipsy's brand marks:
+
+| Color | HEX | RGB | Sample | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Mint Green** | `#93DEAE` | `rgb(147, 222, 174)` | `██████` | Primary light brand color |
+| **Carbon Black** | `#30353A` | `rgb(48, 53, 58)` | `██████` | Primary dark brand color / Dark theme |
+| **Dark Charcoal** | `#2F343A` | `rgb(47, 52, 58)` | `██████` | Dark background accent color for light assets |
+
+### Bipsy Asset Catalog (by Format Directories)
+Each format directory (`Bipsy/PNG/`, `Bipsy/WEBP/`, `Bipsy/JPG/`, `Bipsy/AVIF/`) contains:
+* **`Brand Marks/`**: Icon-only logos including `carbon_symbol` and `mint_symbol` variants (with and without backgrounds).
+* **`Combination Marks/`**: Combined logos featuring `carbon` and `mint` horizontal and vertical combinations.
+* **`Wordmarks/`**: Wordmarks with background and transparent variants.
 
 ---
 
