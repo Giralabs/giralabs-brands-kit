@@ -6,6 +6,7 @@ Currently, this repository hosts the brand kits for:
 1. **Giralabs** - The core brand kit with clean, modern assets.
 2. **Mealty** - Provisional brand resources, application screenshots, and marketing assets.
 3. **Bipsy** - The Bipsy brand kit with carbon and mint green elements.
+4. **Bipsy Business** - The Bipsy Business brand kit with slate grey, dark carbon, and white elements.
 
 All assets are structured by project, type, and format to ensure seamless integration across web, mobile, print, and social media platforms.
 
@@ -23,13 +24,19 @@ giralabs-brand-kit/
 │   ├── 📁 JPG/                      # Compatibility-focused JPG files (with white background fallback)
 │   └── 📁 AVIF/                     # Next-gen high compression AVIF files
 │
-├── 📁 Mealty - Provisional/
+├── 📁 Mealty/
 │   ├── 📁 WEBP/                     # Original WebP and screenshots
 │   ├── 📁 PNG/                      # High-res PNG exports
 │   ├── 📁 JPG/                      # JPG exports (ideal for compatibility / email clients)
 │   └── 📁 AVIF/                     # Next-gen high compression AVIF exports
 │
-└── 📁 Bipsy/
+├── 📁 Bipsy/
+│   ├── 📁 PNG/                      # Original high-res PNG files (with transparency)
+│   ├── 📁 WEBP/                     # Modern web-optimized WebP files
+│   ├── 📁 JPG/                      # Compatibility-focused JPG files (with white background fallback)
+│   └── 📁 AVIF/                     # Next-gen high compression AVIF files
+│
+└── 📁 Bipsy Business/
     ├── 📁 PNG/                      # Original high-res PNG files (with transparency)
     ├── 📁 WEBP/                     # Modern web-optimized WebP files
     ├── 📁 JPG/                      # Compatibility-focused JPG files (with white background fallback)
@@ -79,7 +86,7 @@ Extracted from Mealty's brand marks:
 | **Sandy Accent** | `#D9CA9B` | `rgb(217, 202, 155)` | `██████` | Accent highlight color |
 
 ### Mealty Asset Catalog (by Format Directories)
-Each format directory (`Mealty - Provisional/WEBP/`, `Mealty - Provisional/PNG/`, `Mealty - Provisional/JPG/`, `Mealty - Provisional/AVIF/`) contains:
+Each format directory (`Mealty/WEBP/`, `Mealty/PNG/`, `Mealty/JPG/`, `Mealty/AVIF/`) contains:
 * **`Brand Marks/`**: Icon-only logos including `green_symbol` and `white_symbol` variants.
 * **`Combination Marks/`**: Combined logos featuring `green` and `white` horizontal and vertical combinations.
 * **`Wordmarks/`**: Wordmarks with background and transparent variants.
@@ -102,6 +109,27 @@ Extracted from Bipsy's brand marks:
 Each format directory (`Bipsy/PNG/`, `Bipsy/WEBP/`, `Bipsy/JPG/`, `Bipsy/AVIF/`) contains:
 * **`Brand Marks/`**: Icon-only logos including `carbon_symbol` and `mint_symbol` variants (with and without backgrounds).
 * **`Combination Marks/`**: Combined logos featuring `carbon` and `mint` horizontal and vertical combinations.
+* **`Wordmarks/`**: Wordmarks with background and transparent variants.
+
+---
+
+## 💼 Bipsy Business Brand Specifications
+
+### Color Palette
+
+Extracted from Bipsy Business's brand marks:
+
+| Color | HEX | RGB | Sample | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Dark Carbon** | `#2F343A` | `rgb(47, 52, 58)` | `██████` | Primary dark theme / background color |
+| **White** | `#FFFFFF` | `rgb(255, 255, 255)` | `██████` | Light theme background / brand color |
+| **Slate Gray** | `#6D7174` | `rgb(109, 113, 116)` | `██████` | Brand mark light variant color |
+| **Steel Blue/Gray** | `#99A6B4` | `rgb(153, 166, 180)` | `██████` | Brand mark dark variant color |
+
+### Bipsy Business Asset Catalog (by Format Directories)
+Each format directory (`Bipsy Business/PNG/`, `Bipsy Business/WEBP/`, `Bipsy Business/JPG/`, `Bipsy Business/AVIF/`) contains:
+* **`Brand Marks/`**: Icon-only logos including `apricot_dark_symbol` and `apricot_light_symbol` variants (with and without backgrounds).
+* **`Combination Marks/`**: Combined logos featuring `horizontal_dark`, `horizontal_light`, `vertical_dark`, and `vertical_light` combinations.
 * **`Wordmarks/`**: Wordmarks with background and transparent variants.
 
 ---

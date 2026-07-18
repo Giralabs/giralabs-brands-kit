@@ -26,6 +26,11 @@ const brandSpecs = {
     darkCharcoal: '#2F343A',
     symbols: ['carbon_symbol_nobackground.png', 'mint_symbol_nobackground.png']
   },
+  'Bipsy Business': {
+    darkBg: '#2f343a',
+    lightBg: '#ffffff',
+    symbols: ['apricot_dark_symbol_nobackground.png', 'apricot_light_symbol_nobackground.png']
+  },
   'Mealty': {
     green: '#4B9782',
     cream: '#FFFAE5',
@@ -403,6 +408,11 @@ async function processSymbolSystem(brandName, symbolFile, srcPath) {
         { name: 'dark_carbon', hex: brandSpecs.Bipsy.carbon },
         { name: 'light_mint', hex: brandSpecs.Bipsy.mint }
       ];
+    } else if (brandName === 'Bipsy Business') {
+      bgColors = [
+        { name: 'dark_bg', hex: brandSpecs['Bipsy Business'].darkBg },
+        { name: 'light_bg', hex: brandSpecs['Bipsy Business'].lightBg }
+      ];
     } else {
       bgColors = [
         { name: 'light_cream', hex: brandSpecs.Mealty.cream },
@@ -488,7 +498,7 @@ function generateGiralabsSocialBanners() {
 }
 
 async function run() {
-  const brands = ['Giralabs', 'Bipsy', 'Mealty - Provisional'];
+  const brands = ['Giralabs', 'Bipsy', 'Bipsy Business', 'Mealty - Provisional'];
 
   for (const brand of brands) {
     const brandPath = path.join(baseKitDir, brand);
@@ -528,7 +538,7 @@ async function run() {
   }
 
   // Cleanup legacy/old directories
-  const outputBrands = ['Giralabs', 'Bipsy', 'Mealty'];
+  const outputBrands = ['Giralabs', 'Bipsy', 'Bipsy Business', 'Mealty'];
   for (const brand of outputBrands) {
     const brandPath = path.join(baseKitDir, brand);
     const oldDirs = ['Core_Master_Assets', 'Resized_Rasters', 'Symbol_System'];
