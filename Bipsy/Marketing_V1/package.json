@@ -1,0 +1,1 @@
+{"name":"marketing-v1","version":"1.0.0","private":true,"type":"commonjs","dependencies":{"puppeteer-core":"^22.15.0","sharp":"^0.35.5"}}

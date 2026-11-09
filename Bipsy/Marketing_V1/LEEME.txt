@@ -1,0 +1,22 @@
+Material de marketing hecho con las capturas de recursos_capturas_bips (30-oct-2026).
+
+appstore/    Capturas de App Store, 1320x2868 (iPhone 6,9"), PNG sin transparencia.
+             bipsy-1..6 para la app Bipsy, business-1..6 para Bipsy Business. Sin Bip.
+appstore-ipad/  Las mismas 12 para iPad 13", 2064x2752, PNG sin transparencia (ipad-*).
+             Llevan las capturas de iPhone dentro de un iPhone: no hay capturas de iPad.
+ig/posts/   Posts de Instagram 1080x1350. post-* son sueltos; carrusel-* se suben en orden.
+ig/reels/    Primeros reels 1080x1920, 30 fps. Descartados: los buenos están en ../promo_v7.
+
+Regenerar (con la barra de estado limpia y los Bips ya montados):
+  npm install
+  node prepare.js
+  node render-slides.js appstore.html appstore
+  node render-slides.js appstore-ipad.html appstore-ipad
+  node render-slides.js ig-posts.html ig/posts
+  node render-reel.js 1 video    (también 2 y 3)
+
+Música y efectos: Mixkit, los mismos de ../promo_v6/audio (ver CREDITOS_AUDIO.txt allí).
+Para anuncios de pago hay que revisar antes su licencia.
+
+Los datos que salen son los de demo del seed. Finanzas no aparece en ninguna pieza de
+esta carpeta porque no hay captura real de esa pantalla.

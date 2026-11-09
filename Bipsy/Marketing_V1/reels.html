@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,500&display=block" rel="stylesheet">
+<script src="common.js"></script>
+<style id="base"></style>
+<style>
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden}
+.scene{position:absolute;inset:0;overflow:hidden;visibility:hidden}
+.it{position:absolute;left:0;top:0;will-change:transform,opacity}
+.t{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.98;width:940px}
+.t em{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:-.015em;font-size:1.13em;line-height:.8}
+.s{font:600 44px/1.28 'Plus Jakarta Sans',sans-serif;letter-spacing:-.01em;width:880px}
+.lotus{background-size:contain;background-repeat:no-repeat;background-position:center}
+.num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:150px;line-height:1;width:190px;height:190px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.pill{padding:30px 54px;border-radius:999px;font:800 50px 'Plus Jakarta Sans',sans-serif;letter-spacing:-.015em;white-space:nowrap}
+.ring{width:120px;height:120px;border-radius:50%;background:rgba(40,50,46,.28);border:6px solid rgba(255,255,255,.9)}
+</style></head><body><div id="stage"></div><script>
+document.getElementById('base').textContent = BASE_CSS;
+const MINT='#C0EED3', MINT2='#A0E3BD', FOREST='#44544B', CARBON='#23282E', INK='#1B2420', PALE='#E7F6EC';
+const SLATE='#8796A8', SLATE2='#A9B6C4', ICE='#E4E9EE', AMBER='#E8B657', NIGHT='#191D22';
+
+const clamp = (v) => Math.max(0, Math.min(1, v));
+const EASE = {
+  out: (p) => 1 - Math.pow(1 - p, 4),
+  back: (p) => { const c = 1.45; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); },
+  inout: (p) => (p < .5 ? 8 * p * p * p * p : 1 - Math.pow(-2 * p + 2, 4) / 2),
+};
+
+// ---- Words of the pieces ----
+const T = (html, size, color) => `<div class="t" style="font-size:${size}px;color:${color}">${html}</div>`;
+const SUB = (html, color) => `<div class="s" style="color:${color}">${html}</div>`;
+const LOTUS = (img, size, o) => `<div class="lotus" style="width:${size}px;height:${size}px;opacity:${o};background-image:url(assets/${img}.webp)"></div>`;
+const BIP = (code, size) => `<img src="assets/${code}.webp" style="display:block;width:${size}px" alt="">`;
+const LOGO = (img, h) => `<img src="assets/${img}.webp" style="display:block;height:${h}px" alt="">`;
+const PILL = (txt, bg, fg) => `<div class="pill" style="background:${bg};color:${fg}">${txt}</div>`;
+const NUM = (n, bg, fg) => `<div class="num" style="background:${bg};color:${fg}">${n}</div>`;
+
+/** Item: x,y = final place; at/dur = entrance (s, from the start of the scene); dy,dx,s,r = where it comes from. */
+const it = (html, x, y, o = {}) => ({ html, x, y, at: 0, dur: .6, dx: 0, dy: 90, s: 1, r: 0, rot: 0, ease: 'out', ...o });
+
+// ---- The three reels ----
+// Safe area of Reels: text stays between y=230 and y=1500 and away from the right edge.
+const REELS = {
+  1: { // Bipsy Business: del papel a la app
+    music: 'music_130.mp3', drop: 15.5, dropAt: 2.5, name: 'reel-1-business-agenda',
+    scenes: [
+      { from: 0, bg: NIGHT, items: [
+        it(LOTUS('lotus-biz-dark', 1100, .1), 200, 900, { dy: 0, dur: 1 }),
+        it(T('¿Todavía', 150, '#F5F7F6'), 70, 480, { at: .05, ease: 'back' }),
+        it(T('apuntas las citas', 150, '#F5F7F6'), 70, 640, { at: .4, ease: 'back' }),
+        it(T('<em style="color:'+SLATE2+'">en una libreta?</em>', 170, SLATE2), 70, 960, { at: 1.05, ease: 'back' }),
+      ]},
+      { from: 2.5, bg: SLATE, items: [
+        it(LOTUS('lotus-biz-light', 1200, .16), 280, 780, { dy: 0, dur: 1 }),
+        it(T('Las reservas llegan <em style="color:#fff">solas</em>', 118, NIGHT), 70, 250, { at: .1 }),
+        it(phone('business-agenda-hoy', 660), 165, 620, { at: .05, dy: 1200, dur: .85, rot: -3 }),
+        it(push(980), 50, 700, { at: .95, dy: -560, ease: 'back', dur: .65, rot: -1.5, z: 5 }),
+      ]},
+      { from: 5.6, bg: ICE, items: [
+        it(LOTUS('lotus-biz-light', 1100, .14), -340, 760, { dy: 0, dur: 1 }),
+        it(T('Cada cita, <em style="color:#5E7083">de un vistazo</em>', 118, NIGHT), 70, 250, { at: .05 }),
+        it(crop('business-agenda-hoy', 47, 804, 851, 213, 1.14, { radius: 56 }), 56, 620, { at: .25, dx: -900, dy: 0, ease: 'back', dur: .55, rot: -1.5 }),
+        it(crop('business-agenda-hoy', 47, 1044, 851, 213, 1.14, { radius: 56 }), 56, 880, { at: .55, dx: 900, dy: 0, ease: 'back', dur: .55, rot: 1.5 }),
+        it(crop('business-agenda-hoy', 47, 1284, 851, 217, 1.14, { radius: 56 }), 56, 1140, { at: .85, dx: -900, dy: 0, ease: 'back', dur: .55, rot: -1 }),
+      ]},
+      { from: 8.6, bg: AMBER, items: [
+        it(LOTUS('lotus-biz-dark', 1200, .08), 180, 700, { dy: 0, dur: 1 }),
+        it(T('Y tú, <em>a lo tuyo</em>', 150, NIGHT), 70, 270, { at: .05 }),
+        it(BIP('MB-10', 980), 50, 520, { at: .25, dy: 700, ease: 'back', dur: .75 }),
+      ]},
+      { from: 11.2, bg: NIGHT, items: [
+        it(LOTUS('lotus-biz-dark', 1200, .13), 180, 700, { dy: 0, dur: 1 }),
+        it(LOGO('biz-on-dark', 110), 70, 260, { at: .05 }),
+        it(T('Pruébalo <em style="color:'+SLATE2+'">14 días gratis</em>', 142, '#F5F7F6'), 70, 440, { at: .15 }),
+        it(SUB('Sin permanencia. Y tu equipo, gratis.', '#AEB8C2'), 74, 760, { at: .35 }),
+        it(BIP('MB-05', 800), 250, 840, { at: .4, dy: 700, ease: 'back', dur: .75 }),
+      ]},
+    ],
+    end: 14.5,
+    sfx: [[2.42,'swoosh'],[3.45,'chime'],[5.52,'swoosh'],[5.85,'tap'],[6.15,'tap'],[6.45,'tap'],[8.52,'swoosh'],[9,'pop'],[11.12,'swoosh'],[11.75,'confirm']],
+  },
+  2: { // Bipsy: reservar en cuatro toques
+    music: 'music_371.mp3', drop: 29.55, dropAt: 2.4, name: 'reel-2-bipsy-cuatro-toques',
+    scenes: [
+      { from: 0, bg: CARBON, items: [
+        it(LOTUS('lotus-mint', 1100, .1), 220, 900, { dy: 0, dur: 1 }),
+        it(T('Reservar cita', 158, '#F5F7F6'), 70, 520, { at: .05, ease: 'back' }),
+        it(T('no debería ser', 158, '#F5F7F6'), 70, 680, { at: .4, ease: 'back' }),
+        it(T('<em style="color:'+MINT+'">una llamada</em>', 180, MINT), 70, 850, { at: .95, ease: 'back' }),
+      ]},
+      { from: 2.4, bg: MINT, items: [
+        it(LOTUS('lotus-carbon', 1100, .06), 300, 760, { dy: 0, dur: 1 }),
+        it(NUM('1', CARBON, MINT), 70, 240, { at: .05, s: .3, dy: 0, ease: 'back', dur: .5 }),
+        it(T('Elige <em style="color:#2C7A58">con quién</em>', 104, INK), 285, 275, { at: .12 }),
+        it(phone('cliente-selecciona-profesional', 680), 160, 500, { at: .05, dy: 1200, dur: .8 }),
+        it('<div class="ring"></div>', 200, 960, { at: 1, s: .3, dy: 0, ease: 'back', dur: .32 }),
+      ]},
+      { from: 4.8, bg: FOREST, items: [
+        it(LOTUS('lotus-mint', 1100, .1), -300, 760, { dy: 0, dur: 1 }),
+        it(NUM('2', MINT, INK), 70, 240, { at: .05, s: .3, dy: 0, ease: 'back', dur: .5 }),
+        it(T('El <em style="color:'+MINT+'">día</em>', 124, '#F4FAF6'), 285, 275, { at: .12 }),
+        it(phone('cliente-reserva-dia', 680), 160, 500, { at: .05, dy: 1200, dur: .8 }),
+        it('<div class="ring"></div>', 282, 1092, { at: .95, s: .3, dy: 0, ease: 'back', dur: .32 }),
+      ]},
+      { from: 7.0, bg: MINT2, items: [
+        it(LOTUS('lotus-carbon', 1100, .06), 280, 760, { dy: 0, dur: 1 }),
+        it(NUM('3', CARBON, MINT), 70, 240, { at: .05, s: .3, dy: 0, ease: 'back', dur: .5 }),
+        it(T('La <em style="color:#1F5F44">hora</em>', 124, INK), 285, 275, { at: .12 }),
+        it(phone('cliente-reserva-hora', 680), 160, 500, { at: .05, dy: 1200, dur: .8 }),
+        it(crop('cliente-reserva-hora', 47, 845, 200, 104, 1.9, { radius: 80 }), 87, 1060, { at: .95, s: .4, dy: 0, ease: 'back', dur: .4, z: 5 }),
+      ]},
+      { from: 9.2, bg: CARBON, items: [
+        it(LOTUS('lotus-mint', 1100, .1), 280, 760, { dy: 0, dur: 1 }),
+        it(NUM('4', MINT, INK), 70, 240, { at: .05, s: .3, dy: 0, ease: 'back', dur: .5 }),
+        it(T('<em style="color:'+MINT+'">Listo</em>', 150, '#F5F7F6'), 285, 265, { at: .12 }),
+        it(phone('cliente-mis-citas', 680), 160, 500, { at: .05, dy: 1200, dur: .8 }),
+        it(crop('cliente-mis-citas', 47, 536, 851, 252, 1.12, { radius: 56 }), 60, 800, { at: .9, s: .5, dy: 0, ease: 'back', dur: .5, rot: -2, z: 5 }),
+      ]},
+      { from: 11.6, bg: PALE, items: [
+        it(LOTUS('lotus-carbon', 1200, .05), 200, 700, { dy: 0, dur: 1 }),
+        it(LOGO('bipsy-carbon', 110), 70, 240, { at: .05 }),
+        it(T('Bipsy es <em style="color:#2C7A58">gratis</em>', 150, INK), 70, 390, { at: .15 }),
+        it(BIP('BIP-01', 1000), 40, 600, { at: .35, dy: 800, ease: 'back', dur: .8 }),
+      ]},
+    ],
+    end: 15,
+    sfx: [[2.32,'swoosh'],[3.45,'tap'],[4.72,'swoosh'],[5.8,'tap'],[6.92,'swoosh'],[8,'tap'],[9.12,'swoosh'],[10.15,'confirm'],[11.52,'swoosh'],[12.05,'pop']],
+  },
+  3: { // Bipsy Business: todo en una app, cortes rápidos
+    music: 'music_130.mp3', drop: 15.5, dropAt: 1.9, name: 'reel-3-business-todo-en-una-app',
+    scenes: [
+      { from: 0, bg: NIGHT, items: [
+        it(LOTUS('lotus-biz-dark', 1100, .1), 220, 900, { dy: 0, dur: 1 }),
+        it(T('Una app.', 190, '#F5F7F6'), 70, 560, { at: .05, ease: 'back' }),
+        it(T('<em style="color:'+SLATE2+'">Todo tu negocio.</em>', 170, SLATE2), 70, 770, { at: .75, ease: 'back' }),
+      ]},
+      ...[
+        ['Agenda', 'business-agenda-deldia', SLATE, NIGHT, -3],
+        ['Clientes', 'business-cliente-detail', ICE, NIGHT, 3],
+        ['Mensajes', 'business-chat', AMBER, NIGHT, -3],
+        ['Reseñas', 'business-resenas', NIGHT, '#F5F7F6', 3],
+        ['Servicios', 'business-servicios', SLATE2, NIGHT, -3],
+        ['Equipo', 'business-equipo', ICE, NIGHT, 3],
+        ['Fichajes', 'business-registro-fichajes', AMBER, NIGHT, -3],
+        ['Portfolio', 'business-portfolio', SLATE, NIGHT, 3],
+      ].map(([word, shot, bg, ink, rot], i) => ({ from: 1.9 + i * 1.0, bg, items: [
+        it(LOTUS(bg === NIGHT ? 'lotus-biz-dark' : 'lotus-biz-light', 1000, bg === NIGHT ? .12 : .16), i % 2 ? -300 : 380, 800, { dy: 0, dur: .6 }),
+        it(T(word, 172, ink), 70, 250, { at: 0, dur: .35, dy: 60 }),
+        it(phone(shot, 680), 160, 500, { at: 0, dy: 900, dur: .45, rot }),
+      ]})),
+      { from: 9.9, bg: ICE, items: [
+        it(LOTUS('lotus-biz-light', 1200, .14), 200, 700, { dy: 0, dur: 1 }),
+        it(T('Hecho para <em style="color:#5E7083">tu negocio</em>', 132, NIGHT), 70, 250, { at: .05 }),
+        it(BIP('MB-14', 980), 50, 560, { at: .2, dy: 800, ease: 'back', dur: .75 }),
+      ]},
+      { from: 12.2, bg: NIGHT, items: [
+        it(LOTUS('lotus-biz-dark', 1200, .13), 180, 700, { dy: 0, dur: 1 }),
+        it(LOGO('biz-on-dark', 110), 70, 260, { at: .05 }),
+        it(T('Pruébalo <em style="color:'+SLATE2+'">14 días gratis</em>', 142, '#F5F7F6'), 70, 440, { at: .15 }),
+        it(SUB('Sin permanencia. Y tu equipo, gratis.', '#AEB8C2'), 74, 760, { at: .35 }),
+        it(BIP('MB-05', 800), 250, 840, { at: .4, dy: 700, ease: 'back', dur: .75 }),
+      ]},
+    ],
+    end: 15,
+    sfx: [[.1,'tap'],[.8,'tap'],[1.85,'swoosh'],[2.9,'tap'],[3.9,'tap'],[4.9,'tap'],[5.9,'tap'],[6.9,'tap'],[7.9,'tap'],[8.9,'tap'],[9.85,'swoosh'],[10.45,'pop'],[12.12,'swoosh'],[12.75,'confirm']],
+  },
+};
+
+const id = new URLSearchParams(location.search).get('r') || '1';
+const REEL = REELS[id];
+const stage = document.getElementById('stage');
+REEL.scenes.forEach((sc, i) => {
+  sc.to = REEL.scenes[i + 1] ? REEL.scenes[i + 1].from : REEL.end;
+  const el = document.createElement('div');
+  el.className = 'scene';
+  el.style.background = sc.bg;
+  el.style.zIndex = i + 1;
+  stage.appendChild(el);
+  sc.el = el;
+  sc.items.forEach((item) => {
+    const n = document.createElement('div');
+    n.className = 'it';
+    n.innerHTML = item.html;
+    if (item.z) n.style.zIndex = item.z;
+    el.appendChild(n);
+    item.el = n;
+  });
+});
+
+const WIPE = .32;
+window.render = (t) => {
+  REEL.scenes.forEach((sc, i) => {
+    const next = REEL.scenes[i + 1];
+    const visible = t >= sc.from && (!next || t < next.from + WIPE);
+    sc.el.style.visibility = visible ? 'visible' : 'hidden';
+    if (!visible) return;
+    const lt = t - sc.from;
+    // The new scene opens as a circle from the middle of the screen.
+    const w = i === 0 ? 1 : EASE.inout(clamp(lt / WIPE));
+    sc.el.style.clipPath = w >= 1 ? 'none' : `circle(${(w * 1250).toFixed(1)}px at 50% 50%)`;
+    for (const it of sc.items) {
+      const p = clamp((lt - it.at) / it.dur);
+      const e = EASE[it.ease](p);
+      const drift = 1 + clamp((lt - it.at) / 3) * .022;
+      const scale = (it.s + (1 - it.s) * e) * drift;
+      const x = it.x + it.dx * (1 - e), y = it.y + it.dy * (1 - e);
+      it.el.style.opacity = clamp(p * 5);
+      it.el.style.transform = `translate(${x.toFixed(2)}px,${y.toFixed(2)}px) rotate(${(it.rot + it.r * (1 - e)).toFixed(3)}deg) scale(${scale.toFixed(4)})`;
+    }
+  });
+};
+window.DURATION = REEL.end;
+window.META = { name: REEL.name, music: REEL.music, drop: REEL.drop, dropAt: REEL.dropAt, sfx: REEL.sfx };
+window.READY = Promise.all([document.fonts.ready, ...[...document.images].map((i) => i.decode().catch(() => {}))]);
+</script></body></html>
